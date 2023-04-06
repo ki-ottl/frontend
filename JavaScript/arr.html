@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  </body>
+  <script>
+
+  // for문을 사용해서 arr1, arr2, arr3, arr4 각각의 배열을 아래와 같이 만드세요
+
+  console.log("arr1 [1,2,3,4,5,6,7,8,9,10]");
+
+  let arr1 = [];
+  for (let i = 1 ; i < 11 ; i++) {
+    arr1[i] = i;
+    console.log(arr1[i]);
+  }
+
+  console.log("arr2 [0,2,4,6,8,10,12,14,16,18,20]");
+
+  let arr2 = [];
+  for (let i = 0 ; i < 21 ; i+=2) {
+    arr2[i] = i;
+    console.log(arr2[i])
+  }
+
+  console.log(`arr3 ["abc1","abc2","abc3","abc4","abc5","abc6","abc7"]`);
+
+  let arr3 = [];
+  for (let i = 1 ; i < 8 ; i++) {
+    arr3[i] = i;
+    console.log(`"abc${arr3[i]}"`);
+  }
+
+  console.log("arr4 = [1,4,7,10,13,16,19,22,25]");
+
+  let arr4 = [];
+  for (let i = 1 ; i < 26 ; i+=3) {
+    arr4[i] = i;
+    console.log(arr4[i]);
+  }
+
+  let str = "abcdefg"; // javascript에서는 하나의 배열처럼 생각한다.
+  console.log(str[0], str[1], str[2]);
+
+  // 1~1000까지 숫자 찍으면서 3, 6, 9에 해당하는 숫자뒤에 짝을 출력
+  // str 인덱스 이용해서 만들기
+
+  // 1차
+
+  let arr = [];
+
+  for (let i = 1 ; i < 1001 ; i++) {
+    arr[i] = i;
+    str = arr[i]+"";
+    if (str[0]==3||str[1]==3||str[2]==3||str[3]==3) {
+      console.log(arr[i]);
+      console.log("짝");
+    } else if (str[0]==6||str[1]==6||str[2]==6||str[3]==6) {
+      console.log(arr[i]);
+      console.log("짝");
+    } else if (str[0]==9||str[1]==9||str[2]==9||str[3]==9) {
+      console.log(arr[i]);
+      console.log("짝");
+    } else {
+      console.log(arr[i]);
+    }
+}
+
+  // 2차 100000 ~ 100100까지 숫자 찍으면서 369에 해당하는 숫자 뒤에 짝을 출력 - 오답
+
+  let arr = [];
+
+  for (let i = 1 ; i < 1001 ; i++) {
+      arr[i] = i;
+      str = arr[i]+"";
+      for (let j = 0 ; j < str.length ; j++ ) {
+        if (str[j]==3||str[j]==6||str[j]==9) {
+         console.log(arr[i]);
+         console.log("짝");
+        } else {
+         console.log(arr[i]);
+       }
+     }
+ }
+
+  // 2차 100000 ~ 100100까지 숫자 찍으면서 369에 해당하는 숫자 뒤에 짝을 출력 - 개선
+
+  let arr = [];
+
+  for (let i = 100000 ; i < 100101 ; i++) {
+      arr[i] = i;
+      str = arr[i]+""; // javascript에서는 숫자에서 문자열을 만나면 문자로 바뀌었던 것을 기억!
+      console.log(arr[i]);
+      for (let j = 0 ; j < str.length ; j++ ) {
+        if (str[j]==3||str[j]==6||str[j]==9) {
+         console.log("짝");
+         break; // 한번이라도 있으면 찍기
+        }
+     }
+ }
+
+
+  </script>
+</html>

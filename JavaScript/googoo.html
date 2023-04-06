@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="inputNum" value="2">
+    <input type="button" id="btn" value="구구단">
+    <div id="googoo"> </div>
+  </body>
+  <script>
+
+  let button = document.getElementById("btn");
+
+  button.addEventListener('click', function () {
+
+    let inputNum = document.getElementById("inputNum").value;
+    // id가 inputNum인 애의 value를 inputNum이라는 변수에 담기
+
+    document.getElementById("googoo").innerHTML = "";
+    // 싹 지워주기
+    // 누락하면 기존에 출력된 부분에 누적되어 출력
+    for(let i = 1 ; i<=9 ; i++) {
+      document.getElementById("googoo").innerHTML += inputNum +'*'+ i + '=' + inputNum * i + '<br>';
+    };
+
+    });
+
+// 백틱 활용 출력
+//    document.getElementById("googoo").innerHTML += inputNum +'x'+ i + '=' + inputNum * i + '<br>';
+//    document.getElementById("googoo").innerHTML += `${inputNum} x ${i} = ${inputNum * i} <br>`;
+
+  </script>
+</html>
