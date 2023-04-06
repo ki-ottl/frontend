@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    ID:
+    <input type="text" id="inputText1" value="">
+    PASSWORD:
+    <input type="text" id="inputText2" value="">
+    <input type="button" id="consoleBtn" value="로그인">
+  </body>
+  <script>
+
+  console.log("일치하면 로그인 성공, 불일치하면 로그인 실패");
+
+  var button = document.getElementById("consoleBtn")
+
+  button.addEventListener('click', function () {
+
+    let id = document.getElementById("inputText1").value;
+    let pw = document.getElementById("inputText2").value;
+
+    if (id =="polytech" && pw == 12341234) console.log("로그인 성공");
+    else console.log("로그인 실패");
+
+});
+
+</script>
+</html>
