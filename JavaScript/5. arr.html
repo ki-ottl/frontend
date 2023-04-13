@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    javascript
+  </body>
+  <script>
+
+    // let arr = [], arr1 = [], arr2 = [], arr3 = [], arr4 = [];
+    //
+    // for (let i = 0 ; i < 5 ; i++) {
+    //   arr[i] = []; // 이렇게 선언을 해야, 각각의 배열이 됐구나! 를 확인 후 두번째 과정!
+    //   for (let j = 0 ; j < 5 ; j++) {
+    //     console.log(i, j)
+    //   }
+    // } // 이런 식으로 값을 콘솔에 찍어보는 습관을 들이는 것이 좋다. 
+
+    let arr1 = [];
+
+    for (let i = 0 ; i < 5 ; i++) {
+      arr1[i] =[];
+      for (let j = 0; j < 5 ; j++) {
+        arr1[i][j] = (5*i)+j+1;
+      }
+    }
+
+    console.log(arr1);
+
+    let arr2 = [];
+
+    for (let i = 0 ; i < 5 ; i++) {
+      arr2[i] =[];
+      for (let j = 0; j < 5 ; j++) {
+        arr2[i][j] = (15*i)+(j*3)+1;
+      }
+    }
+
+    console.log(arr2);
+
+    let arr3 = [];
+
+    for (let i = 0 ; i < 5 ; i++) {
+      arr3[i] =[];
+      for (let j = 0; j < 5 ; j++) {
+        arr3[i][j] = i+((j-1)*i);
+        // arr3[i][j] = i*j ;
+      }
+    }
+
+    console.log(arr3);
+
+
+    let arr4 = [];
+
+    for (let i = 0 ; i < 5 ; i++) {
+      arr4[i] =[];
+      for (let j = 0; j < 5 ; j++) {
+        arr4[i][j] =`${i}${j}` ;
+      }
+    }
+
+    console.log(arr4);
+
+    // 아래는 손코딩 실습 내용
+    // num의 값을 유의하자!
+
+    let arr5 = [];
+    let num = 0;
+    for (let i = 0 ; i < 5 ; i++) {
+      arr5[i] = [];
+      for (let j = 0 ; j < 5 ; j++) {
+        arr5[i][j] = num;
+        num += i*2 + j*3;
+      }
+    }
+
+    console.log(arr5);
+
+
+    let arr6 = [];
+    for (let i = 1 ; i < 10 ; i = i+3) {
+      arr6[(i+2)/3-1] = [];
+      for (let j = 0; j < 5 ; j++) {
+        arr6[(i+2)/3-1][j] = i*j;
+      }
+    }
+
+    console.log(arr6);
+
+
+
+  </script>
+</html>

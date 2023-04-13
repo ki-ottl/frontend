@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  </body>
+  <script>
+
+  for (let num = 1 ; num <=1000 ; num++) { // 1~1000까지의 숫자를 다 판별하기 위함
+    num = num+""; // 문자열로 형변환
+    let isContainingThreeSixNine = false; // 369 값 판별을 위한 불린값 false로 초기화
+    let jjackString = ""; // '짝'을 담을 공간을 하나 만들어주고,
+
+    for(let i = 0 ; i < num.length ; i++) { // 숫자의 자리수(인덱스)만큼 보기위해서 num.length
+      if(num[i]%3==0 && num[i]!=0) { // 각 자리수에 있는 숫자가 3의 배수면 369 숫자로 판별
+       isContainingThreeSixNine = true;
+       jjackString += "짝"; // 빈 열에다가 3의 배수만큼 짝 담아주기
+    }
+  }
+
+     if (isContainingThreeSixNine) { // 위 if문에 해당하지 않으면 이 조건문을 안 탐
+      console.log(jjackString); // 담아둔 문자열로 출력해주기
+     } else {
+      console.log(num);
+    }
+}
+
+  </script>
+</html>

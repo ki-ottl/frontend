@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  1  <input type="radio" name="r1"> <br>
+  2  <input type="radio" name="r1"> <br>
+  3  <input type="radio" name="r1"> <br>
+  4  <input type="radio" name="r1"> <br>
+  5  <input type="radio" name="r1"> <br>
+  6  <input type="radio" name="r1"> <br>
+  7  <input type="radio" name="r1"> <br>
+  8  <input type="radio" name="r1">
+   <br>
+   <input type="button" value="확인" id="radioCheckBtn">
+  </body>
+  <script>
+
+    let button = document.getElementById("radioCheckBtn");
+    button.addEventListener('click', function () {
+      let radioBtns = document.getElementsByName("r1");
+      // name이 r1인 애들을 데려올 것이다.
+      // 이거를 복사해서 콘솔에다가 넣으면 radio 배열을 불러올 수 있다.
+      // 거기서 checked 부분을 확인하면 선택하지 않은 것들의 속성은 false로 되어있고,
+      // 선택한 애들은 true로 되어있다.
+
+      for (let i = 0 ; i <radioBtns.length ; i++) {
+        if(radioBtns[i].checked) { // checked가 true인 것만 가져오기
+          console.log(`${i+1}번째가 선택되어 있음.`);
+        }
+      }
+  });
+
+  </script>
+</html>
