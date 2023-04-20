@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <input type="text" id="num1">
+  <input type="text" id="num2">
+  <input type="text" id="num3">
+  <input type="button" value="곱하기" id="multipleBtn">
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+    // 1. 라우터 생성
+    // /qs2 로는 qs2.html 파일을 reponser로 받을 것이고
+    // /qsMultiple로는 ajax로 서버에 숫자들을 request로 전송하여 곱을 response로 받을 것
+
+    // 2. qs2.html 생성
+    // input 3개와 button 1개 만들기
+    // ajax로 숫자들을 request로 전달
+
+   $("#multipleBtn").click(function(){ // id가 multipleBtn인 버튼을 클릭하면,
+     let number1 = Number($("#num1").val()); // id가 num1인 것의 value를 number1이라는 변수에 담는다.
+     let number2 = Number($("#num2").val());
+     let number3 = Number($("#num3").val());
+
+     // 쿼리스트링을 사용할 것이기 때문에 값이 변화되는 부분은 ${}로 구분해주기
+     // key와 value의 형태로 이루어져 있음을 유의
+     // qnum1은 key, number1은 qnum1의 value값이 될 것
+
+     $.ajax({
+       url:`http://localhost/qsMultiple?qnum1=${number1}&qnum2=${number2}&qnum3=${number3}`,
+       data: {},
+       success:function(data){
+         console.log(data);
+       }
+     })
+  });
+
+    // 3. http://localhost/qs2에 들어가서 1, 2, 3을 입력하고 버튼을 누르면
+    // cmd 창에 key와 value 형태로 값이 확인된다.
+    // (라우터에 console.log(req.query); 기재해놨기 때문에!)
+
+    // 4. 쿼리 값이 잘 확인이 된다면 /qsMultiple 라우터 수정
+    //  app.get('/qsMultiple', function (req, res) {
+    //    let resultNum1 = Number(req.query.qnum1);
+    //    let resultNum2 = Number(req.query.qnum2);
+    //    let resultNum3 = Number(req.query.qnum3);
+    //    let resultNum = resultNum1 * resultNum2 * resultNum3;
+    //    res.send(""+resultNum); // 숫자만 보내는 것은 불가해서 문자로 변환해줘야 한다.
+    //  })
+
+  </script>
+</html>

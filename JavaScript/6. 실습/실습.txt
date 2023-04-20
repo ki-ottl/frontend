@@ -1,0 +1,18 @@
+서버
+라우터 네개 작성
+/request1 - 응답으로 "response1" 전송
+/request2 - 응답으로 "response2" 전송
+/request3 - 응답으로 "response3" 전송
+/getFile - requestTest.html 파일전송
+
+클라이언트
+request1
+request2
+request3
+버튼을 세개 만들고
+각각 버튼을 클릭 시 각각의 라우터에 해당하는 요청을 보내고
+응답을 받아서 콘솔에 출력하시오
+
+
+
+

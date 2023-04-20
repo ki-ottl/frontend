@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <input type="text" id="price" value="">
+  <input type="button" value="구입하기" id="Btn">
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#Btn").click(function(){
+     let price = Number($("#price").val());
+
+     $.ajax({
+       url:`http://localhost/buying?price=${price}`,
+       data: {},
+       success:function(data){
+         console.log(data);
+         alert(data);
+       }
+     })
+  });
+
+  </script>
+</html>

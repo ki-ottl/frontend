@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <input type="button" value="ajax" id="ajaxBtn">
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#ajaxBtn").click(function(){
+
+     $.ajax({
+       url:"http://localhost/ajaxTest",
+       data: {},
+       success:function(data){
+         console.log(data);
+         alert(data);
+       }
+     })
+  });
+
+  // 브라우저에서 http://localhost/ajax로 호출하고
+  // ajax.html 파일을 response로 받게 된다.
+  // 그 ajax.html 내용이 버튼을 누르면 http://localhost/ajaxTest로
+  // request를 보내고 성공적으로 받은 response를 data에 담아서
+  // 로그로도 보여주고 팝업창으로도 보여주겠다는 내용이다.
+  // 처음에 브라우저에서 request를 보내면 nodejs에서 응답으로 파일을 보내주고
+  // 그 파일에 있는 ajax가 서버로 request를 보내고 서버로부터 reponse를 받은 것!
+
+  // 브라우저에서 http://localhost/ajaxTest를 쳐서 
+  // request를 보낸 것과는 차이가 있다.
+
+  // 서버 입장에서 똑같은 request를 받아서 response를 보내는 건 동일하지만,
+  // 우리가 request를 보낸 방식이 완전히 다른 것!
+
+  </script>
+</html>
