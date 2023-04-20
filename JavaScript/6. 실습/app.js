@@ -3,19 +3,6 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app).listen(80);
 
-app.get('/javascript', function (req, res) {
-  res.sendfile("javascript.html");
-})
-
-app.get('/ajax', function (req, res) {
-  res.sendfile("ajax.html");
-})
-
-app.get('/ajaxTest', function (req, res) {
-  res.send("ajax response");
-  console.log("ajax response");
-})
-
 app.get('/getFile', function (req, res) {
   res.sendfile("requestTest.html");
 })
