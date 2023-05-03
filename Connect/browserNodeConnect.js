@@ -17,10 +17,11 @@ app.get('/test', function (req, res) {
 // 요청에 대한 응답을 하라!
 // http://localhost/test 라는 요청을 보냈을 때
 // node js에서 코딩한 내용을 읽어들이고, 서버에서 응답한다.
-// cmd에 hello world라는 글자가 찍히고
-// 홈페이지에서는 hello text라는 응답을 받을 수 있다.
+// cmd에 test1 이라는 글자가 찍히고
+// 브라우저에서는 test1 hello text라는 응답을 받을 수 있다.
 // 이 과정을 반드시 잘 이해하고 넘어가야 한다.
 // 콘솔은 출력하는 것 이외에는 아무런 기능이 없는 것이다!
+// 콘솔은 개발자가 확인을 하기 위한 부분
 
 app.get('/test2', function (req, res) {
   console.log("test2");
