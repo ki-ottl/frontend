@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="inputText">
+      <input type="text" name="t1" value="">
+    </div>
+    <br>
+    <input type="button" value="추가" id="addBtn">
+    <input type="button" value="출력" id="printBtn">
+    <div id="result"></div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+      let inputDiv = document.getElementById("inputText");
+      let resultDiv = document.getElementById('result');
+
+      $("#addBtn").click(function(){
+        inputDiv.innerHTML += '<br><input type="number">';
+      });
+
+      $("#printBtn").click(function(){
+        let inputs = document.querySelectorAll('#inputText input');
+        let sum = 0;
+        for (let i = 0; i < inputs.length; i++) {
+          sum += Number(inputs[i].value);
+        }
+        resultDiv.textContent = sum;
+      });
+
+
+    </script>
+  </body>
+</html>

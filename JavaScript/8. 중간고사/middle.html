@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  숫자1 -  &nbsp
+  1  <input type="radio" name="r1"> &nbsp
+  2  <input type="radio" name="r1"> &nbsp
+  3  <input type="radio" name="r1"> &nbsp
+  4  <input type="radio" name="r1"> &nbsp
+  5  <input type="radio" name="r1"> &nbsp
+  6  <input type="radio" name="r1"> &nbsp
+  7  <input type="radio" name="r1"> &nbsp
+  8  <input type="radio" name="r1"> &nbsp
+  9  <input type="radio" name="r1"> &nbsp
+  10 <input type="radio" name="r1"> &nbsp
+  <br>
+  숫자2 -  &nbsp
+  1  <input type="radio" name="r2"> &nbsp
+  2  <input type="radio" name="r2"> &nbsp
+  3  <input type="radio" name="r2"> &nbsp
+  4  <input type="radio" name="r2"> &nbsp
+  5  <input type="radio" name="r2"> &nbsp
+  6  <input type="radio" name="r2"> &nbsp
+  7  <input type="radio" name="r2"> &nbsp
+  8  <input type="radio" name="r2"> &nbsp
+  9  <input type="radio" name="r2"> &nbsp
+  10 <input type="radio" name="r2"> &nbsp
+  <br>
+  숫자3 - &nbsp
+  1  <input type="radio" name="r3"> &nbsp
+  2  <input type="radio" name="r3"> &nbsp
+  3  <input type="radio" name="r3"> &nbsp
+  4  <input type="radio" name="r3"> &nbsp
+  5  <input type="radio" name="r3"> &nbsp
+  6  <input type="radio" name="r3"> &nbsp
+  7  <input type="radio" name="r3"> &nbsp
+  8  <input type="radio" name="r3"> &nbsp
+  9  <input type="radio" name="r3"> &nbsp
+  10 <input type="radio" name="r3"> &nbsp
+  <br>
+   <input type="button" value="출력" id="Btn">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#Btn").click(function(){
+
+          let radioBtns1 = document.getElementsByName("r1");
+          let radioBtns2 = document.getElementsByName("r2");
+          let radioBtns3 = document.getElementsByName("r3");
+
+          let checked1;
+          let checked2;
+          let checked3;
+
+          let checked = [];
+
+          for (let i = 0 ; i <radioBtns1.length ; i++) {
+            if(radioBtns1[i].checked) {
+              checked[0] = i+1;
+            }
+          }
+
+          for (let i = 0 ; i <radioBtns2.length ; i++) {
+            if(radioBtns2[i].checked) {
+              checked[1] = i+1;
+            }
+          }
+
+          for (let i = 0 ; i <radioBtns3.length ; i++) {
+            if(radioBtns3[i].checked) {
+              checked[2] = i+1;
+            }
+          }
+
+          // console.log(checked);
+
+          for (let i = 0 ; i < checked.length ; i++) {
+            for (let j = i+1 ; j < checked.length ; j++) {
+              if (checked[i]<checked[j]) {
+                let tmp = checked[i];
+                checked[i] = checked[j];
+                checked[j] = tmp;
+              }
+            }
+          }
+
+          // console.log(checked);
+
+          let max = checked[0];
+          let min = checked[2];
+
+          let total = max**min;
+
+          console.log(total);
+      });
+
+  </script>
+</html>

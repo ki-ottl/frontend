@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    키:<input type="text" id="h" value="">
+    <br>
+    몸무게:<input type="text" id="w" value="">
+    <br>
+    <input type="button" value="비만도" id="Btn">
+    <br>
+    <div id="dataDiv">  </div>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#Btn").click(function(){
+
+     $.ajax({
+       url:`http://localhost/middle3data?height=${$("#h").val()}&weight=${$("#w").val()}`,
+       data: {},
+       success:function(data){
+         document.getElementById("dataDiv").innerHTML = `${data}`;
+       }
+     })
+
+  });
+
+  </script>
+</html>

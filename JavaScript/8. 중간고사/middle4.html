@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    국어 :&nbsp<input type="text" id=kor value="">
+    <br>
+    영어 :&nbsp<input type="text" id="eng" value="">
+    <br>
+    수학 :&nbsp<input type="text" id="math" value="">
+    <br>
+    <input type="button" value="석차" id="Btn">
+    <br>
+    <div id="dataDiv"> </div>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#Btn").click(function(){
+
+     $.ajax({
+       url:`http://localhost/middle4data?kor=${$("#kor").val()}&eng=${$("#eng").val()}&math=${$("#math").val()}`,
+       data: {},
+       success:function(data){
+         document.getElementById("dataDiv").innerHTML = `${data}`;
+       }
+     })
+
+  });
+
+  </script>
+</html>
