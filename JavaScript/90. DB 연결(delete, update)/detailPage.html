@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    제목 : <span id="titleArea"> </span>
+    <br>
+    내용 : <span id="contentsArea"> </span>
+    <br>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+  $.ajax({
+     url:`http://localhost/getNum`,
+     data: {},
+     success:function(data){
+       let get = data;
+       $("#titleArea").append(data[0].title);
+       $("#contentsArea").append(data[0].content);
+       console.log(data);
+    }
+  });
+
+  </script>
+</html>

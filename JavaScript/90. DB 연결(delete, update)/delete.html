@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    list <div id="listArea"> </div>
+    <br>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+  // ajax로 post 테이블의 모든 데이터를 읽어와서
+  // 번호, 제목, 내용을 번호 내림차순 순서대로 화면에 출력하고,
+  // 내용 우측에 삭제 버튼 만들고 삭제 버튼 클릭 시,
+  // DB 삭제 후 화면에서 제거
+
+  // 실제로 브라우저에 localhost/deletePost?no=44라고 치면,
+  // no가 44인 것이 삭제된다.
+
+  // 교수님 답안
+    $.ajax({
+       url:`http://localhost/deleteList`,
+       data: {},
+       success:function(data){
+         for(let i = 0 ; i < data.length ; i++) {
+           let post = data[i];
+           console.log(post);
+           $("#listArea").append(`<div id="post${post.no}"> 번호 :
+           ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}
+          <input type="button" value="삭제" onclick="deletePost(${post.no})"></div>`)
+        } // onclick은 ajax안에서 함수를 실행해주는 것!
+      }
+    });
+
+
+  // 위에 onclick과 연관. parameter에 no를 매개변수로 넣어주기.
+    function deletePost(no) {
+       $.ajax({
+         url:`http://localhost/deletePost?no=${no}`,
+         data: {},
+         success:function(data){
+           console.log(data);
+           if(data.affectedRows==1) {
+             $(`#post${no}`).remove();
+           } // 영향을 받은 행이 1일 때 진짜 db에서 삭제 된 것!! 반영이 되었을 때만 삭제!!
+         }
+       });
+    }
+
+    // 내 답안
+    // let arr = [];
+     $.ajax({
+       url:`http://localhost/deleteList`,
+       data: {},
+       success:function(data){
+         for(let i = 0 ; i < data.length ; i++) {
+           let post = data[i];
+           console.log(post);
+           $("#listArea").append(`<div id="post${post.no}">
+            번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}
+            <input type="button" value="삭제" id="btn${post.no}"></div>`)
+           // <div> tag 만들어서 줄 없애준다는 개념
+           // console.log(post.no);
+           // arr.push(post.no);
+           // console.log(arr);
+
+             $(`#btn${post.no}`).click(function(){
+               $.ajax({
+                 url:`http://localhost/deletePost?no=${post.no}`,
+                 data: {},
+                 success:function(data){
+                   console.log(data);
+                   $(`#post${post.no}`).remove(); // id 불러올 때 # 빼먹지 않기
+                 }
+               });
+             });
+           }
+         }
+       });
+
+  </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    list <div id="listArea"> </div>
+    <br>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+    $.ajax({
+       url:`http://localhost/deleteList`,
+       data: {},
+       success:function(data){
+         for(let i = 0 ; i < data.length ; i++) {
+           let post = data[i];
+           // console.log(post);
+           console.log(post);
+           $("#listArea").append(`<div id="post${post.no}"> 제목 : ${post.title}
+           <input type="button" value="보기" onclick="moveToDetailPage(${post.no})">
+           <input type="button" value="삭제" onclick="deletePost(${post.no})">
+           <input type="button" value="수정" onclick="editPost(${post.no})"></div>`)
+        } // onclick은 ajax안에서 함수를 실행해주는 것!
+      }
+    });
+
+    function moveToDetailPage(no) {
+      location.href = `http://localhost/detailPage?no=${no}`;
+    }
+
+    function editPost(no) {
+      location.href = `http://localhost/editPost?no=${no}`;
+    }
+
+    function deletePost(no) {
+       $.ajax({
+         url:`http://localhost/deletePost?no=${no}`,
+         data: {},
+         success:function(data){
+           // console.log(data);
+           if(data.affectedRows==1) {
+             $(`#post${no}`).remove();
+           } // 영향을 받은 행이 1일 때 진짜 db에서 삭제 된 것!! 반영이 되었을 때만 삭제!!
+         }
+       });
+    }
+
+  </script>
+</html>
