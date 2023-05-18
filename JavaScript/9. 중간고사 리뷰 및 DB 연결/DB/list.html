@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="listArea"> </div>
+    <br>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+  // ajax로 post 테이블의 모든 데이터를 읽어와서
+  // 번호, 제목, 내용을 번호 내림차순 순서대로 화면에 출력
+
+     $.ajax({
+       url:`http://localhost/getList`,
+       data: {},
+       success:function(data){
+         for(let i = 0 ; i < data.length ; i++) {
+           let post = data[i];
+           console.log(post);
+           $("#listArea").append(`번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}<br>`)
+         }
+       }
+     });
+
+  </script>
+</html>

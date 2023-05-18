@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    title <input type="text" id="title">
+    <br>
+    text <input type="text" id="content">
+    <br>
+    <input type="button" value="입력" id="insertBtn">
+    <br>
+  </body>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+// title, text를 두 개의 input 창으로 입력 받아,
+// 글쓰기 버튼을 누르면 ajax로 데이터 베이스에 insert
+
+  $("#insertBtn").click(function(){
+      $.ajax({
+        url: `http://localhost/dbtest?title=${$("#title").val()}&content=${$("#content").val()}`,
+        data: {},
+        success : function(data) {
+
+        }
+      })
+    });
+
+  </script>
+</html>

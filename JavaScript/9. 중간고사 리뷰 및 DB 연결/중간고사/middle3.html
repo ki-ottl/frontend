@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    키:<input type="text" id="height">
+    <br>
+    몸무게:<input type="text" id="weight">
+    <br>
+    <input type="button" value="비만도" id="resultBtn">
+    <br>
+    <div id="dataDiv">  </div>
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#resultBtn").click(function(){
+     $.ajax({
+       url:`http://localhost/bmiCal?height=${$("#height").val()}&weight=${$("#weight").val()}`,
+       data: {},
+       success:function(data){
+         $("#dataDiv").html(`bmi : ${data.bmi} / 결과 : ${data.result}`);
+         console.log(data);
+       }
+     })
+
+  });
+
+  </script>
+</html>

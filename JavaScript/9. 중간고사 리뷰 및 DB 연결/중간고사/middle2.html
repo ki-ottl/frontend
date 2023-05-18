@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="inputAddArea">
+    </div>
+    <br>
+    <input type="button" value="추가" id="addBtn">
+    <input type="button" value="출력" id="printBtn">
+    <div id="resultArea"></div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+      let cnt = 0;
+      $("#addBtn").click(function(){
+        $("#inputAddArea").append(`<input type="text" id="num${cnt}"><br>`);
+        cnt++;
+        // console.log(cnt);
+      });
+
+      $("#printBtn").click(function(){
+        // console.log($(`#num0`).val());
+        let resultNum = 0;
+        for(let i = 0 ; i < cnt ; i++) {
+          // console.log($(`#num${i}`).val());
+          resultNum += Number($(`#num${i}`).val());
+        }
+        $("#resultArea").html(resultNum);
+      });
+
+    </script>
+  </body>
+</html>

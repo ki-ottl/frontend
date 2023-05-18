@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  숫자1 -  &nbsp
+  1  <input type="radio" name="r1" value="1"> &nbsp
+  2  <input type="radio" name="r1" value="2"> &nbsp
+  3  <input type="radio" name="r1" value="3"> &nbsp
+  4  <input type="radio" name="r1" value="4"> &nbsp
+  5  <input type="radio" name="r1" value="5"> &nbsp
+  6  <input type="radio" name="r1" value="6"> &nbsp
+  7  <input type="radio" name="r1" value="7"> &nbsp
+  8  <input type="radio" name="r1" value="8"> &nbsp
+  9  <input type="radio" name="r1" value="9"> &nbsp
+  10 <input type="radio" name="r1" value="10"> &nbsp
+  <br>
+  숫자2 -  &nbsp
+  1  <input type="radio" name="r2" value="1"> &nbsp
+  2  <input type="radio" name="r2" value="2"> &nbsp
+  3  <input type="radio" name="r2" value="3"> &nbsp
+  4  <input type="radio" name="r2" value="4"> &nbsp
+  5  <input type="radio" name="r2" value="5"> &nbsp
+  6  <input type="radio" name="r2" value="6"> &nbsp
+  7  <input type="radio" name="r2" value="7"> &nbsp
+  8  <input type="radio" name="r2" value="8"> &nbsp
+  9  <input type="radio" name="r2" value="9"> &nbsp
+  10 <input type="radio" name="r2" value="10"> &nbsp
+  <br>
+  숫자3 - &nbsp
+  1  <input type="radio" name="r3" value="1"> &nbsp
+  2  <input type="radio" name="r3" value="2"> &nbsp
+  3  <input type="radio" name="r3" value="3"> &nbsp
+  4  <input type="radio" name="r3" value="4"> &nbsp
+  5  <input type="radio" name="r3" value="5"> &nbsp
+  6  <input type="radio" name="r3" value="6"> &nbsp
+  7  <input type="radio" name="r3" value="7"> &nbsp
+  8  <input type="radio" name="r3" value="8"> &nbsp
+  9  <input type="radio" name="r3" value="9"> &nbsp
+  10 <input type="radio" name="r3" value="10"> &nbsp
+  <br>
+   <input type="button" value="출력" id="resultBtn">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+   $("#resultBtn").click(function(){
+
+     let num1, num2, num3;
+
+     for(let i = 0; i < document.getElementsByName("r1").length; i++) {
+       if(document.getElementsByName("r1")[i].checked) {
+         num1 = i+1;
+       }
+       if(document.getElementsByName("r2")[i].checked) {
+         num2 = i+1;
+       }
+       if(document.getElementsByName("r3")[i].checked) {
+         num3 = i+1;
+       }
+     }
+
+     console.log(num1, num2, num3);
+
+     let bigNum = num1, smallNum = num1;
+
+     if(bigNum < num2) {
+       bigNum = num2;
+     }
+     if(bigNum < num3) {
+       bigNum = num3;
+     }
+
+     if(smallNum > num2) {
+       smallNum = num2;
+     }
+     if(smallNum > num3) {
+       smallNum = num3;
+     }
+
+     console.log(bigNum, smallNum);
+
+     let resultNum = 1;
+
+     for(let i = 0 ; i < smallNum ; i++) {
+       resultNum *= bigNum;
+     }
+
+     console.log(resultNum);
+     // console.log(Math.pow(bigNum, smallNum));
+
+   });
+
+  </script>
+</html>
